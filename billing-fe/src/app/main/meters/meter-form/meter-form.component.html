@@ -1,0 +1,67 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+        
+        <app-content-header [contentHeader]="contentHeader"></app-content-header>
+        <section id="meter-form">
+            <div class="card col-md-6">
+                <div class="card-body">
+                    <!-- form here-->
+                    <form action="" class="form" #meterForm="ngForm" (ngSubmit)="onSubmit(meterForm)">
+                        <div class="form-group col-12">
+                            <label for="customerId">Customer</label>
+                            <input 
+                                 type="text" 
+                                 #customerId="ngModel"
+                                 [(ngModel)]="meter.customerId"
+                                 class="form-control"
+                                 name="customerId"
+                                 [ngModelOptions]="{standalone: true}"
+                                 required
+                                 [ngClass]="{'is-invalid': meterForm.submitted && customerId.invalid}">
+                                 <small *ngIf="meterForm.submitted && customerId.invalid" class="invalid-feedback">
+                                    <div *ngIf="customerId.errors.required">Customer is required</div>
+                                 </small>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="meterNumber">Meter Number</label>
+                            <input
+                              type="text"
+                              #meterNumber="ngModel"
+                              [(ngModel)]="meter.meterNumber"
+                              class="form-control"
+                              name="meterNumber"
+                              [ngModelOptions]="{standalone: true}"
+                              required
+                              [ngClass]="{
+                                'is-invalid': meterForm.submitted && meterNumber.invalid
+                              }"
+                            />
+                            <div *ngIf="meterForm.submitted && meterNumber.invalid" class="invalid-feedback">
+                                <div *ngIf="meterNumber.errors.required">Meter Number is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group col-12">
+                            <label for="installationDate">Installation Date</label>
+                            <ng2-flatpickr
+                                #installationDate="ngModel"
+                                [config]="customDateOptions"
+                                [(ngModel)]="meter.installationDate"
+                                [ngModelOptions]="{standalone: true}"
+                                required>
+                            </ng2-flatpickr>
+                          </div>
+                        <div class="col-12">
+                            <button type="submit" rippleEffect class="btn btn-primary mr-1">
+                              Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                  
+            </div>
+        </section>
+    </div>
+</div>
+
+
