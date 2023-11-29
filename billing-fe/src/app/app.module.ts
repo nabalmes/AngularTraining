@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import 'hammerjs';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,6 +24,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ContactNumberDirective } from './common/directives/contact-number.directive';
 import { API_VERSION, BASE_PATH } from './common/variable';
 import { environment } from 'environments/environment';
+import { AuthInterceptor } from './common/interceptors/auth.interceptor';
 
 const appRoutes: Routes = [
   {
@@ -72,7 +73,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     {provide: BASE_PATH, useValue: environment.apiUrl},
-    {provide: API_VERSION, useValue: environment.apiVersion}
+    {provide: API_VERSION, useValue: environment.apiVersion},
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
 
   ],
   bootstrap: [AppComponent]
