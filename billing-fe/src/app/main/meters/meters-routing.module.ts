@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MetersComponent } from './meters.component';
 import { MeterFormComponent } from './meter-form/meter-form.component';
+import { MeterResolver } from 'app/common/resolvers/meter.resolver';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     data: {
       title: 'Edit Meter',
       breadcrumb: "Edit"
-    }
+    },
+    resolve: {Meter: MeterResolver},
   },
 ];
 

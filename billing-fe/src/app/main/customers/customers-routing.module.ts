@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomersComponent } from './customers.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { BarangayResolver } from 'app/common/resolvers/barangay.resolver';
+import { CustomerResolver } from 'app/common/resolvers/customer.resolver';
 
 const routes: Routes = [
   {
@@ -24,8 +25,10 @@ const routes: Routes = [
     data: {
       title: 'Edit Customer',
       breadcrumb: "Edit"
-    }
+    },
+    resolve: {Customer: CustomerResolver, Barangays: BarangayResolver},
   },
+
 ];
 
 @NgModule({

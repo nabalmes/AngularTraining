@@ -1,4 +1,8 @@
 export const locale = {
   lang: 'en',
-  data: {}
+  data: {
+    CUSTOMER: {
+      FIRST_NAME: 'First Name'
+    }
+  }
 }

@@ -9,6 +9,7 @@ import { CoreCommonModule } from '@core/common.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreTouchspinModule } from '@core/components/core-touchspin/core-touchspin.module';
 import { BarangayService } from 'app/common/services/barangay.service';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { BarangayService } from 'app/common/services/barangay.service';
     CoreCommonModule,
     NgbModule,
     CoreTouchspinModule,
-    CustomersRoutingModule
+    CustomersRoutingModule,
+    NgxDatatableModule
   ],
   providers: [
     BarangayService

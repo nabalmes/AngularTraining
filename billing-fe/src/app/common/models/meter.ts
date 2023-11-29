@@ -1,5 +1,7 @@
 export interface Meter {
+    id: number;
+    customer: string;
     customerId: number;
-    meterNumber: string;
-    installationDate: string;
+    meterNumber: number;
+    installationDate: Date;
 }

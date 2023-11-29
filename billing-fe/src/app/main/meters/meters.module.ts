@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
@@ -25,7 +26,8 @@ import { Ng2FlatpickrModule } from 'ng2-flatpickr';
     NgbModule,
     CoreTouchspinModule,
     MetersRoutingModule,
-    Ng2FlatpickrModule
+    Ng2FlatpickrModule,
+    NgxDatatableModule
   ]
 })
 export class MetersModule { }
